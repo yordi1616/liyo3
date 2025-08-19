@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Earn Points</title>
+</head>
+<body>
+    <h1>Earn Points</h1>
+    <p>Hello, {{ username }}! Choose a task to complete and earn points:</p>
+
+    <form method="post" action="{{ url_for('game', username=username) }}">
+        <ul>
+        {% for task in tasks %}
+            <li>
+                Task: {{ task.name }} | Points: {{ task.points }}
+                <button type="submit" name="task_id" value="{{ task.id }}">Complete</button>
+            </li>
+        {% endfor %}
+        </ul>
+    </form>
+
+    <hr>
+    <a href="{{ url_for('game', username=username) }}">Back to Game</a>
+</body>
+</html>
