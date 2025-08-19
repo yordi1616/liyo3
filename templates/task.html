@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Completed Tasks</title>
+</head>
+<body>
+    <h1>My Completed Tasks</h1>
+    <p>Hello, {{ username }}! Here are the tasks you have completed:</p>
+    {% if tasks %}
+        <ul>
+        {% for task in tasks %}
+            <li>{{ task.name }} ({{ task.points }} points)</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>You have not completed any tasks yet.</p>
+    {% endif %}
+    <hr>
+    <a href="{{ url_for('game', username=username) }}">Back to Game</a>
+</body>
+</html>
