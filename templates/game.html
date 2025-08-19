@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game</title>
+</head>
+<body>
+    <h1>Hello, {{ username }}!</h1>
+    <p>Your current score: {{ user_points }} points</p>
+    <hr>
+    <nav>
+        <a href="{{ url_for('earn', username=username) }}">Earn Points</a> | 
+        <a href="{{ url_for('task', username=username) }}">My Tasks</a> |
+        <a href="{{ url_for('members', username=username) }}">Members</a>
+    </nav>
+</body>
+</html>
